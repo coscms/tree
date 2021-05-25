@@ -57,3 +57,13 @@ func Dump(m interface{}, args ...bool) (r string) {
 	}
 	return
 }
+
+func Each(data *Tree, callback func(*Item) error) error {
+	return data.Range(func(item *Item) error {
+		err := callback(item)
+		if err != nil {
+			return err
+		}
+		return Each(item.Children, callback)
+	})
+}
