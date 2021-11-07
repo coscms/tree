@@ -8,6 +8,7 @@ import (
 type Row interface {
 	GetID() int64
 	GetParentID() int64
+	GetObject() interface{} // for html/tempalte
 }
 
 func Build(list []Row) (*Tree, error) {

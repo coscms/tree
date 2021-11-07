@@ -19,6 +19,10 @@ func (t *TestItem) GetParentID() int64 {
 	return t.ParentID
 }
 
+func (t *TestItem) GetObject() interface{} {
+	return t
+}
+
 func TestTree(t *testing.T) {
 	// 6 -> 4 -> 2
 	list := []Row{
